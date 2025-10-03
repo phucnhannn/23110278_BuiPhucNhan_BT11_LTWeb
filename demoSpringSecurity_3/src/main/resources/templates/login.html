@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - IOTSTAR.VNK</title>
+    <style>
+        .error { color: red; margin: 10px 0; }
+        .success { color: green; margin: 10px 0; }
+    </style>
+</head>
+<body>
+<div>
+    <h2>Đăng nhập hệ thống</h2>
+    
+    <!-- Hiển thị thông báo lỗi -->
+    <div th:if="${param.error}" class="error">
+        Tên đăng nhập hoặc mật khẩu không đúng!
+    </div>
+    
+    <!-- Hiển thị thông báo logout -->
+    <div th:if="${param.logout}" class="success">
+        Bạn đã đăng xuất thành công!
+    </div>
+    
+    <form th:action="@{/login}" method="post" style="max-width: 400px; margin: 0 auto;">
+        <p>
+            <label>Username hoặc Email:</label><br>
+            <input type="text" name="username" placeholder="Nhập username hoặc email" required style="width: 300px; padding: 8px;" />
+        </p>
+        <p>
+            <label>Mật khẩu:</label><br>
+            <input type="password" name="password" placeholder="Nhập mật khẩu" required style="width: 300px; padding: 8px;" />
+        </p>
+        <p>
+            <input type="submit" value="Đăng nhập" style="padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer;" />
+        </p>
+    </form>
+    
+    <p style="text-align: center; margin-top: 20px;">
+        <small>Hệ thống quản lý sản phẩm - IOTSTAR.VN</small>
+    </p>
+</div>
+</body>
+</html>
